@@ -1,5 +1,8 @@
 import tkinter as tk
 import random
+from pygame import mixer
+
+
 
 
 def  init_gui():
@@ -9,14 +12,6 @@ def  init_gui():
 
 def close(root):
     root.destroy()
-
-# def init_lbls(root):
-#     lbl_start = tk.Label(root, text="Подбор ключа активации Photoshop",
-#                             font = ('',50))
-#     lbl_start.pack(anchor='center', expand=True)
-#     lbl_key_out = tk.Label(root)
-#     lbl_key_out.pack(anchor='center', expand= True)
-#     return lbl_start ,lbl_key_out
 
 
 def init_button(root,label):
@@ -62,7 +57,7 @@ window = init_gui()
 window.geometry('1280x720')
 
 
-bg_img = tk.PhotoImage(file='LABA3/bg_rdr2.png')
+bg_img = tk.PhotoImage(file='bg_rdr2.png')
 lbl_bg = tk.Label(window, image=bg_img)
 
 
@@ -74,6 +69,9 @@ lbl_key_out = tk.Label(window)
 lbl_key_out.pack(anchor='center', expand= True)
 
 lbl_bg.place(x=0, y=0, relwidth=1, relheight=1)
+mixer.init()
+mixer.music.load('rdr2_music.mp3')
+mixer.music.play(-1)
 
 init_button(window,lbl_key_out)
 
